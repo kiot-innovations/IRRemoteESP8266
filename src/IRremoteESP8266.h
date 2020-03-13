@@ -271,6 +271,15 @@
 #define SEND_MITSUBISHI112     _IR_ENABLE_DEFAULT_
 #endif  // SEND_MITSUBISHI112
 
+#define DECODE_RCA             false
+#define SEND_RCA               true
+
+#define DECODE_NECSHORT        false
+#define SEND_NECSHORT          true
+
+#define DECODE_XMP1            false
+#define SEND_XMP1              true
+
 #ifndef DECODE_FUJITSU_AC
 #define DECODE_FUJITSU_AC      _IR_ENABLE_DEFAULT_
 #endif  // DECODE_FUJITSU_AC
