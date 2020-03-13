@@ -545,6 +545,16 @@ class IRsend {
                  const uint16_t nbytes = kAmcorStateLength,
                  const uint16_t repeat = kAmcorDefaultRepeat);
 #endif  // SEND_AMCOR
+#if SEND_RCA
+  void sendRCA(uint64_t data, uint16_t nbits = kRCABits, uint16_t repeat = kNoRepeat);
+#endif
+#if SEND_NECSHORT
+  void sendNECShort(uint64_t data, uint16_t nbits = kNECShortBits, uint16_t repeat = kNoRepeat);
+#endif
+
+#if SEND_XMP1
+  void sendXMP1(uint64_t data, uint16_t nbits = kXMP1Bits, uint16_t repeat = kNoRepeat);
+#endif
 #if SEND_EPSON
   void sendEpson(uint64_t data, uint16_t nbits = kEpsonBits,
                  uint16_t repeat = kEpsonMinRepeat);
