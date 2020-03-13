@@ -553,7 +553,7 @@ class IRsend {
 #endif
 
 #if SEND_XMP1
-  void sendXMP1(uint64_t data, uint16_t nbits = kXMP1Bits, uint16_t repeat = kNoRepeat);
+  void sendXMP1(uint64_t data, uint16_t nbits = kXMP1Bits);
 #endif
 #if SEND_EPSON
   void sendEpson(uint64_t data, uint16_t nbits = kEpsonBits,
