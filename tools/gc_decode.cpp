@@ -27,20 +27,18 @@ void str_to_uint16(char *str, uint16_t *res, uint8_t base) {
 void usage_error(char *name) {
   std::cerr << "Usage: " << name << " [-gc] [-rawdump] <global_code>"
             << std::endl
-            << "Usage: " << name
-            << " -prontohex [-rawdump] [-repeats num] <prontohex_code>"
+            << "Usage: " << name << " -prontohex [-rawdump] <prontohex_code>"
             << std::endl
             << "Usage: " << name << " -raw [-rawdump] <raw_code>" << std::endl;
 }
 
 int main(int argc, char *argv[]) {
   int argv_offset = 1;
-  int repeats = 0;
   bool dumpraw = false;
   enum decode_type_t input_type = GLOBALCACHE;
   const uint16_t raw_freq = 38;
   // Check the invocation/calling usage.
-  if (argc < 2 || argc > 6) {
+  if (argc < 2 || argc > 4) {
     usage_error(argv[0]);
     return 1;
   }
@@ -54,22 +52,9 @@ int main(int argc, char *argv[]) {
     argv_offset++;
   }
 
-  if (strncmp("-rawdump", argv[argv_offset], 8) == 0) {
+  if (strncmp("-rawdump", argv[argv_offset], 7) == 0) {
     dumpraw = true;
     argv_offset++;
-  }
-
-  if (input_type == PRONTO && strncmp("-repeats", argv[argv_offset], 8) == 0) {
-    argv_offset++;
-    if (argc - argv_offset <= 1) {
-      usage_error(argv[0]);
-      return 1;
-    }
-    repeats = atoi(argv[argv_offset++]);
-    if (repeats < 0) {
-      usage_error(argv[0]);
-      return 1;
-    }
   }
 
   if (argc - argv_offset != 1) {
@@ -95,8 +80,8 @@ int main(int argc, char *argv[]) {
     index++;
   }
 
-  IRsendTest irsend(0);
-  IRrecv irrecv(0);
+  IRsendTest irsend(4);
+  IRrecv irrecv(4);
   irsend.begin();
   irsend.reset();
 
@@ -105,7 +90,7 @@ int main(int argc, char *argv[]) {
       irsend.sendGC(gc_test, index);
       break;
     case PRONTO:
-      irsend.sendPronto(gc_test, index, repeats);
+      irsend.sendPronto(gc_test, index);
       break;
     case RAW:
       irsend.sendRaw(gc_test, index, raw_freq);
