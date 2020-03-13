@@ -887,20 +887,24 @@ const uint8_t  kVestelAcBits = 56;
 
 // Legacy defines. (Deprecated)
 #define AIWA_RC_T501_BITS             kAiwaRcT501Bits
+#define AIWA_RC_T501_MIN_REPEAT       1U
 #define ARGO_COMMAND_LENGTH           kArgoStateLength
 #define COOLIX_BITS                   kCoolixBits
 #define CARRIER_AC_BITS               kCarrierAcBits
+#define CARRIER_AC_MIN_REPEAT         0U
 #define DAIKIN_COMMAND_LENGTH         kDaikinStateLength
 #define DENON_BITS                    kDenonBits
 #define DENON_48_BITS                 kDenon48Bits
 #define DENON_LEGACY_BITS             kDenonLegacyBits
 #define DISH_BITS                     kDishBits
+#define DISH_MIN_REPEAT               3U
 #define FUJITSU_AC_MIN_REPEAT         kFujitsuAcMinRepeat
 #define FUJITSU_AC_STATE_LENGTH       kFujitsuAcStateLength
 #define FUJITSU_AC_STATE_LENGTH_SHORT kFujitsuAcStateLengthShort
 #define FUJITSU_AC_BITS               kFujitsuAcBits
 #define FUJITSU_AC_MIN_BITS           kFujitsuAcMinBits
 #define GICABLE_BITS                  kGicableBits
+#define GICABLE_MIN_REPEAT            1U
 #define GREE_STATE_LENGTH             kGreeStateLength
 #define HAIER_AC_STATE_LENGTH         kHaierACStateLength
 #define HAIER_AC_YRW02_STATE_LENGTH   kHaierACYRW02StateLength
@@ -917,7 +921,9 @@ const uint8_t  kVestelAcBits = 56;
 #define LG32_BITS                     kLg32Bits
 #define MAGIQUEST_BITS                kMagiquestBits
 #define MIDEA_BITS                    kMideaBits
+#define MIDEA_MIN_REPEAT              0U
 #define MITSUBISHI_BITS               kMitsubishiBits
+#define MITSUBISHI_MIN_REPEAT         1U  // Based on marcosamarinho's code.
 #define MITSUBISHI_AC_STATE_LENGTH    kMitsubishiACStateLength
 #define NEC_BITS                      kNECBits
 #define NIKAI_BITS                    kNikaiBits
@@ -932,12 +938,16 @@ const uint8_t  kVestelAcBits = 56;
 #define SANYO_SA8650B_BITS            kSanyoSA8650BBits
 #define SHARP_BITS                    kSharpBits
 #define SHERWOOD_BITS                 kSherwoodBits
+#define SHERWOOD_MIN_REPEAT           1U
 #define SONY_12_BITS                  kSony12Bits
 #define SONY_15_BITS                  kSony15Bits
 #define SONY_20_BITS                  kSony20Bits
+#define SONY_MIN_BITS                 SONY_12_BITS
+#define SONY_MIN_REPEAT               2U
 #define TOSHIBA_AC_STATE_LENGTH       kToshibaACStateLength
 #define TROTEC_COMMAND_LENGTH         kTrotecStateLength
 #define WHYNTER_BITS                  kWhynterBits
+#define LASERTAG_MIN_REPEAT           0U
 
 // Turn on Debugging information by uncommenting the following line.
 // #define DEBUG 1
