@@ -892,6 +892,9 @@ const uint16_t kWhirlpoolAcBits = kWhirlpoolAcStateLength * 8;
 const uint16_t kWhirlpoolAcDefaultRepeat = kNoRepeat;
 const uint16_t kWhynterBits = 32;
 const uint8_t  kVestelAcBits = 56;
+const uint16_t kRCABits = 24;  // Excludes the 'start' bit.
+const uint16_t kNECShortBits = 32;  // Excludes the 'start' bit.
+const uint16_t kXMP1Bits = 64;  // Excludes the 'start' bit.
 
 
 // Legacy defines. (Deprecated)
