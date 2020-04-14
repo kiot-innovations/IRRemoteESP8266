@@ -95,6 +95,8 @@ decode_type_t strToDecodeType(const char * const str) {
     return decode_type_t::UNKNOWN;
   else if (!strcasecmp(str, "UNUSED"))
     return decode_type_t::UNUSED;
+  else if (!strcasecmp(str, "AIRWELL"))
+    return decode_type_t::AIRWELL;
   else if (!strcasecmp(str, "AIWA_RC_T501"))
     return decode_type_t::AIWA_RC_T501;
   else if (!strcasecmp(str, "AMCOR"))
@@ -119,6 +121,8 @@ decode_type_t strToDecodeType(const char * const str) {
     return decode_type_t::DAIKIN2;
   else if (!strcasecmp(str, "DAIKIN216"))
     return decode_type_t::DAIKIN216;
+  else if (!strcasecmp(str, "DAIKIN64"))
+    return decode_type_t::DAIKIN64;
   else if (!strcasecmp(str, "DENON"))
     return decode_type_t::DENON;
   else if (!strcasecmp(str, "DISH"))
@@ -147,6 +151,8 @@ decode_type_t strToDecodeType(const char * const str) {
     return decode_type_t::HITACHI_AC1;
   else if (!strcasecmp(str, "HITACHI_AC2"))
     return decode_type_t::HITACHI_AC2;
+  else if (!strcasecmp(str, "HITACHI_AC3"))
+    return decode_type_t::HITACHI_AC3;
   else if (!strcasecmp(str, "HITACHI_AC424"))
     return decode_type_t::HITACHI_AC424;
   else if (!strcasecmp(str, "INAX"))
@@ -269,6 +275,9 @@ String typeToString(const decode_type_t protocol, const bool isRepeat) {
     case UNUSED:
       result = F("UNUSED");
       break;
+    case AIRWELL:
+      result = F("AIRWELL");
+      break;
     case AIWA_RC_T501:
       result = F("AIWA_RC_T501");
       break;
@@ -304,6 +313,9 @@ String typeToString(const decode_type_t protocol, const bool isRepeat) {
       break;
     case DAIKIN216:
       result = F("DAIKIN216");
+      break;
+    case DAIKIN64:
+      result = F("DAIKIN64");
       break;
     case DENON:
       result = F("DENON");
@@ -346,6 +358,9 @@ String typeToString(const decode_type_t protocol, const bool isRepeat) {
       break;
     case HITACHI_AC2:
       result = F("HITACHI_AC2");
+      break;
+    case HITACHI_AC3:
+      result = F("HITACHI_AC3");
       break;
     case HITACHI_AC424:
       result = F("HITACHI_AC424");
@@ -530,6 +545,7 @@ bool hasACState(const decode_type_t protocol) {
     case HITACHI_AC:
     case HITACHI_AC1:
     case HITACHI_AC2:
+    case HITACHI_AC3:
     case HITACHI_AC424:
     case KELVINATOR:
     case MITSUBISHI136:
@@ -853,6 +869,15 @@ namespace irutils {
         switch (model) {
           case gree_ac_remote_model_t::YAW1F: return F("YAW1F");
           case gree_ac_remote_model_t::YBOFB: return F("YBOFB");
+          default: return kUnknownStr;
+        }
+        break;
+      case decode_type_t::HITACHI_AC1:
+        switch (model) {
+          case hitachi_ac1_remote_model_t::R_LT0541_HTA_A:
+            return F("R-LT0541-HTA-A");
+          case hitachi_ac1_remote_model_t::R_LT0541_HTA_B:
+            return F("R-LT0541-HTA-B");
           default: return kUnknownStr;
         }
         break;
