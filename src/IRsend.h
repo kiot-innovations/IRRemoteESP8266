@@ -169,10 +169,10 @@ class IRsend {
   void Space();
   // End - Added By Arihant
   int8_t calibrate(uint16_t hz = 38000U);
-  void sendRaw(const uint16_t buf[], const uint16_t len, const uint16_t hz);
+  void sendRaw(const uint32_t buf[], const uint16_t len, const uint16_t hz);
   // Added By ARIHANT
-  void sendRaw(uint16_t buf[], uint16_t len, uint16_t first_bit, uint16_t sec_bit, uint16_t rpt_cnt, uint16_t hz);
-  void sendRaw(uint16_t num, uint16_t i);
+  void sendRaw(uint32_t buf[], uint16_t len, uint16_t first_bit, uint16_t sec_bit, uint16_t rpt_cnt, uint16_t hz);
+  void sendRaw(uint32_t num, uint16_t i);
   // End - Added By Arihant
   void sendData(uint16_t onemark, uint32_t onespace, uint16_t zeromark,
                 uint32_t zerospace, uint64_t data, uint16_t nbits,

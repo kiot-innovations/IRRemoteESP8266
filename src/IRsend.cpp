@@ -576,7 +576,7 @@ void IRsend::sendManchester(const uint16_t headermark,
 //
 // Ref:
 //   examples/IRrecvDumpV2/IRrecvDumpV2.ino
-void IRsend::sendRaw(const uint16_t buf[], const uint16_t len,
+void IRsend::sendRaw(const uint32_t buf[], const uint16_t len,
                      const uint16_t hz) {
   // Set IR carrier frequency
   enableIROut(hz);
@@ -591,7 +591,7 @@ void IRsend::sendRaw(const uint16_t buf[], const uint16_t len,
 }
 // Added By Arihant 
 
-void IRsend::sendRaw(uint16_t num, uint16_t i) {
+void IRsend::sendRaw(uint32_t num, uint16_t i) {
   // Set IR carrier frequency
   if(i & 1){
     space(num);
@@ -600,7 +600,7 @@ void IRsend::sendRaw(uint16_t num, uint16_t i) {
   }
 }
 
-void IRsend::sendRaw(uint16_t buf[], uint16_t len, uint16_t first_bit, uint16_t sec_bit, uint16_t rpt_cnt, uint16_t hz)
+void IRsend::sendRaw(uint32_t buf[], uint16_t len, uint16_t first_bit, uint16_t sec_bit, uint16_t rpt_cnt, uint16_t hz)
 {
   enableIROut(hz);
   for (uint16_t j=0; j<rpt_cnt;j++){
