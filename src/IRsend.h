@@ -309,6 +309,8 @@ class IRsend {
 #if SEND_RC5
   void sendRC5(uint64_t data, uint16_t nbits = kRC5XBits,
                uint16_t repeat = kNoRepeat);
+  void sendRC5M(uint64_t data, uint16_t nbits = kRC5XBits,
+                uint16_t repeat = kNoRepeat, uint16_t freq = 36);
   uint16_t encodeRC5(uint8_t address, uint8_t command,
                      bool key_released = false);
   uint16_t encodeRC5X(uint8_t address, uint8_t command,

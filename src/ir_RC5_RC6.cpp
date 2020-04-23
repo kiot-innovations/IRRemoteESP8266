@@ -109,6 +109,56 @@ void IRsend::sendRC5(uint64_t data, uint16_t nbits, uint16_t repeat) {
   }
 }
 
+
+// Some customm chinese RC5 protocol which have different frequency than 36. 
+void IRsend::sendRC5M(uint64_t data, uint16_t nbits, uint16_t repeat, uint16_t freq) {
+  if (nbits > sizeof(data) * 8) return;  // We can't send something that big.
+  bool skipSpace = true;
+  bool field_bit = true;
+  // Set 36kHz IR carrier frequency & a 1/4 (25%) duty cycle.
+  enableIROut(freq, 25);
+
+  if (nbits >= kRC5XBits) {  // Is this a RC-5X message?
+    // field bit is the inverted MSB of RC-5X data.
+    field_bit = ((data >> (nbits - 1)) ^ 1) & 1;
+    nbits--;
+  }
+
+  IRtimer usecTimer = IRtimer();
+  for (uint16_t i = 0; i <= repeat; i++) {
+    usecTimer.reset();
+
+    // Header
+    // First start bit (0x1). space, then mark.
+    if (skipSpace)
+      skipSpace = false;  // First time through, we assume the leading space().
+    else
+      space(kRc5T1);
+    mark(kRc5T1);
+    // Field/Second start bit.
+    if (field_bit) {  // Send a 1. Normal for RC-5.
+      space(kRc5T1);
+      mark(kRc5T1);
+    } else {  // Send a 0. Special case for RC-5X. Means 7th command bit is 1.
+      mark(kRc5T1);
+      space(kRc5T1);
+    }
+
+    // Data
+    for (uint64_t mask = 1ULL << (nbits - 1); mask; mask >>= 1)
+      if (data & mask) {  // 1
+        space(kRc5T1);    // 1 is space, then mark.
+        mark(kRc5T1);
+      } else {         // 0
+        mark(kRc5T1);  // 0 is mark, then space.
+        space(kRc5T1);
+      }
+    // Footer
+    space(std::max(kRc5MinGap, kRc5MinCommandLength - usecTimer.elapsed()));
+  }
+}
+
+
 // Encode a Philips RC-5 data message.
 //
 // Args:
