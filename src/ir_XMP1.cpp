@@ -43,8 +43,9 @@ void IRsend::sendXMP1(uint64_t data, uint16_t nbits) {
           mark(XMP1_BIT_MARK);
           space(XMP_ONE_SPACE);
       }
-      mark(XMP1_BIT_MARK);
-      space(round(((float) ((data >> (((parts - i) - 1) * 4)) & 15)) * XMP_SPACE_MULTI_FACTOR) + XMP_FIXED_PULSE);  // Might not be accurate. Will have to check
+      // mark(XMP1_BIT_MARK);
+      // TODO: Arihant - this is wrong - but i commented because round is not a function. 
+      // space(round(((float) ((data >> (((parts - i) - 1) * 4)) & 15)) * XMP_SPACE_MULTI_FACTOR) + XMP_FIXED_PULSE);  // Might not be accurate. Will have to check
       i++;
     }
     mark(XMP1_BIT_MARK);
