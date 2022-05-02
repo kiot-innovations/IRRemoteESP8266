@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['greeprotocol_3756',['GreeProtocol',['../unionGreeProtocol.html',1,'']]]
+  ['ecoclimprotocol_4024',['EcoclimProtocol',['../unionEcoclimProtocol.html',1,'']]],
+  ['electraprotocol_4025',['ElectraProtocol',['../unionElectraProtocol.html',1,'']]]
 ];

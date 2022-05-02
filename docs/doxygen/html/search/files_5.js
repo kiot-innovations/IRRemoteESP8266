@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['zh_2dcn_2eh_3942',['zh-CN.h',['../zh-CN_8h.html',1,'']]]
+  ['readme_2emd_4277',['README.md',['../README_8md.html',1,'']]],
+  ['ru_2dru_2eh_4278',['ru-RU.h',['../ru-RU_8h.html',1,'']]]
 ];
