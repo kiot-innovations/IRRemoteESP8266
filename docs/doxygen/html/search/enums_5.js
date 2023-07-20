@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['opmode_5ft_7431',['opmode_t',['../namespacestdAc.html#a99ad268c783486f9b3207cb78f48444f',1,'stdAc']]]
+  ['lg_5fac_5fremote_5fmodel_5ft_8697',['lg_ac_remote_model_t',['../IRsend_8h.html#a50c54713e16502d280723334879dc83b',1,'IRsend.h']]]
 ];

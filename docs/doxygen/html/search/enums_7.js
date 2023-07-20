@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['swingh_5ft_7433',['swingh_t',['../namespacestdAc.html#aae50ee315fa9c9ec1a4078da40d6b147',1,'stdAc']]],
-  ['swingv_5ft_7434',['swingv_t',['../namespacestdAc.html#ac07f224c7bb47cac55dd01f24770ef43',1,'stdAc']]]
+  ['opmode_5ft_8699',['opmode_t',['../namespacestdAc.html#a99ad268c783486f9b3207cb78f48444f',1,'stdAc']]]
 ];

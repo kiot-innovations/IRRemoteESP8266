@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hitachi_5fac1_5fremote_5fmodel_5ft_7429',['hitachi_ac1_remote_model_t',['../IRsend_8h.html#acd0c6107b5a6cab2080b18a8de14ea49',1,'IRsend.h']]]
+  ['gree_5fac_5fremote_5fmodel_5ft_8694',['gree_ac_remote_model_t',['../IRsend_8h.html#af65070c92b97fa00b2de3818c46039c9',1,'IRsend.h']]]
 ];

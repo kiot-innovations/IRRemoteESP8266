@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['haierprotocol_3757',['HaierProtocol',['../unionHaierProtocol.html',1,'']]],
-  ['haieryrw02protocol_3758',['HaierYRW02Protocol',['../unionHaierYRW02Protocol.html',1,'']]]
+  ['ecoclimprotocol_4436',['EcoclimProtocol',['../unionEcoclimProtocol.html',1,'']]],
+  ['electraprotocol_4437',['ElectraProtocol',['../unionElectraProtocol.html',1,'']]]
 ];
